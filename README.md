@@ -1,4 +1,4 @@
-# ccc_ready_to_roll
+# ready-to-roll
 
 Files for the 1.5h Creative Computing Club session, Ready to Roll
 
