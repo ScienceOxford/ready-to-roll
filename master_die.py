@@ -14,7 +14,10 @@ np = neopixel.NeoPixel(pin0, 7)
 # dictionary to associate a string number with the neopixels needed for pattern
 numbers = {"1": [0, 0, 0, 1, 0, 0, 0], "2": [0, 1, 0, 0, 0, 1, 0],
            "3": [1, 0, 0, 1, 0, 0, 1], "4": [1, 0, 1, 0, 1, 0, 1],
-           "5": [1, 0, 1, 1, 1, 0, 1], "6": [1, 1, 1, 0, 1, 1, 1]}
+           "5": [1, 0, 1, 1, 1, 0, 1], "6": [1, 1, 1, 0, 1, 1, 1],
+           "one": [0, 0, 0, 1, 0, 0, 0], "two": [0, 1, 0, 0, 0, 1, 0],
+           "three": [1, 0, 0, 1, 0, 0, 1], "four": [1, 0, 1, 0, 1, 0, 1],
+           "five": [1, 0, 1, 1, 1, 0, 1], "six": [1, 1, 1, 0, 1, 1, 1]}
 
 # dictionary to associate a string colour with the RGB values for that colour
 colours = {"red": (255, 0, 0), "green": (0, 255, 0), "blue": (0, 0, 255),
@@ -37,7 +40,7 @@ def show_number(time):
 
 while True:
     message = radio.receive()
-    # message must be in format 'number colour' e.g. '3 red' or '2 green'
+    # message must be in format 'number colour' e.g. '3 red' or 'two green'
     while message is None:
         # if no messages, cycle through random numbers & colours
         number = random.choice(list(numbers.values()))
