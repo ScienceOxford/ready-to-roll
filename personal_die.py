@@ -55,4 +55,5 @@ while True:
     if button_a.was_pressed():
             number = choice(numbers)
             display.show(number)
+            radio.send(str(number) + " red")
             sleep(500)
