@@ -14,10 +14,7 @@ np = neopixel.NeoPixel(pin0, 7)
 # dictionary to associate a string number with the neopixels needed for pattern
 numbers = {"1": [0, 0, 0, 1, 0, 0, 0], "2": [0, 1, 0, 0, 0, 1, 0],
            "3": [1, 0, 0, 1, 0, 0, 1], "4": [1, 0, 1, 0, 1, 0, 1],
-           "5": [1, 0, 1, 1, 1, 0, 1], "6": [1, 1, 1, 0, 1, 1, 1],
-           "one": [0, 0, 0, 1, 0, 0, 0], "two": [0, 1, 0, 0, 0, 1, 0],
-           "three": [1, 0, 0, 1, 0, 0, 1], "four": [1, 0, 1, 0, 1, 0, 1],
-           "five": [1, 0, 1, 1, 1, 0, 1], "six": [1, 1, 1, 0, 1, 1, 1]}
+           "5": [1, 0, 1, 1, 1, 0, 1], "6": [1, 1, 1, 0, 1, 1, 1]}
 
 # dictionary to associate a string colour with the RGB values for that colour
 colours = {"red": (255, 0, 0), "green": (0, 255, 0), "blue": (0, 0, 255),
@@ -45,14 +42,14 @@ while True:
         # if no messages, cycle through random numbers & colours
         number = random.choice(list(numbers.values()))
         colour = random.choice(list(colours.values()))
-        show_number(200)
+        show_number(500)
         message = radio.receive()
     try:
         # split message into ["number", "colour"] e.g. ["3", "red"] & show
         roll = message.split()
         number = numbers[roll[0]]
         colour = colours[roll[1]]
-        show_number(1000)
+        show_number(2000)
     except (KeyError):
         # if message not in correct format, so item not in dict, then move on
         pass
