@@ -9,12 +9,12 @@ import radio
 
 radio.on()
 
-np = neopixel.NeoPixel(pin0, 7)
+np = neopixel.NeoPixel(pin0, 9)
 
 # dictionary to associate a string number with the neopixels needed for pattern
-numbers = {"1": [0, 0, 0, 1, 0, 0, 0], "2": [0, 1, 0, 0, 0, 1, 0],
-           "3": [1, 0, 0, 1, 0, 0, 1], "4": [1, 0, 1, 0, 1, 0, 1],
-           "5": [1, 0, 1, 1, 1, 0, 1], "6": [1, 1, 1, 0, 1, 1, 1]}
+numbers = {"1": [0, 0, 0, 0, 1, 0, 0, 0, 0], "2": [0, 1, 0, 0, 0, 0, 0, 1, 0],
+           "3": [1, 0, 0, 0, 1, 0, 0, 0, 1], "4": [1, 0, 1, 0, 0, 0, 1, 0, 1],
+           "5": [1, 0, 1, 0, 1, 0, 1, 0, 1], "6": [1, 1, 1, 0, 0, 0, 1, 1, 1]}
 
 # dictionary to associate a string colour with the RGB values for that colour
 colours = {"red": (255, 0, 0), "green": (0, 255, 0), "blue": (0, 0, 255),
