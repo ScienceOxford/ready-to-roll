@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ready to Roll</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <a href="https://scienceoxford.com" target="_blank"><img src=".\images\so_logo.png" alt="Science Oxford Logo" width="400px" height="auto"></a>
+    <h1>CCC - Ready to Roll</h1>
+  </header>
+
+  <div id="intro">
+    <p>Resources for the 'Ready to Roll' Creative Computing Club.</p>
+    <p>During this workshop, you will create electronic dice with a BBC micro:bit.</p>
+    <p>This page recaps what <a href="https://bit.ly/Apr22CCC" target="_blank">we discussed as a group</a>.</p>
+    <p>To skip to the examples and ideas, <a href="#extensions">click here</a>.</p>
+    <br>
+  </div>
+
+  <div id="starter" class="left">
+    <h3>Creating your first micro:bit program</h3>
+    <p>Open <a href="https://codewith.mu/" target="_blank">the Mu editor</a> on your computer. <strong>If there is code on the screen</strong>, start a New program from the menu.</p>
+    <img src="https://raw.githubusercontent.com/ScienceOxford/cyber-pet/master/images/mu_toolbar_new.png" alt="Mu menu, highlighting 'New'" width="1000px" height="auto">
+    <p>Type these lines of code into your blank window:</p>
+    <pre>from microbit import *
+from random import randint, choice
+import radio
+
+display.show(Image.HAPPY)</pre>
+    <br>
+    <p>Plug your micro:bit into the computer, then click Flash:</p>
+    <img src="https://raw.githubusercontent.com/ScienceOxford/cyber-pet/master/images/mu_toolbar_flash.png" alt="Mu menu, highlighting 'Flash'" width="1000px" height="auto">
+    <p>Some code should be running on your micro:bit!</p>
+    <p><strong>If you get a message scrolling across the micro:bit's screen</strong>, this is an error message!</p>
+    <p><strong>Debug</strong> your code, then click Flash again to test your changes.</p>
+    <p>Once your code is working - change it!</p>
+    <p>Instead of <code>HAPPY</code>, can you think of another <code>Image</code> the micro:bit could <code>show</code> on its <code>display</code>?</p>
+    <br>
+  </div>
+
+  <div id="random-number" class="left">
+    <h3>Displaying a random number</h3>
+    <p>...</p>
+    <br>
+  </div>
+
+  <div id="while-loop" class="left">
+    <h3>Using loops</h3>
+    <p>...</p>
+    <br>
+  </div>
+
+  <div id="input" class="left">
+    <h3>Choosing when to roll</h3>
+    <p>...</p>
+    <p>link to expanding the if-else statements extension</p>
+    <p>link to images extension, can do this while waiting for their second micro:bit</p>
+    <br>
+  </div>
+
+  <div id="radio" class="left">
+    <h3>Controlling other dice</h3>
+    <p>...</p>
+    <p>add info about big demo die here?</p>
+    <br>
+  </div>
+
+  <div id="extensions" class="left">
+    <h3>What next?</h3>
+    <p>You have a basic die now, what do you want to add next?</p>
+    <p>The links below give you some other ideas of things you could add to your project.</p>
+    <br>
+  </div>
+
+  <nav class="links bg_green">
+    <a href="images.html" target="_blank">design your own dice faces</a>
+    <a href="dnd.html" target="_blank">3-in-1 dice!</a>
+    <a href="die2.html" target="_blank">edit the second micro:bit code</a>
+  </nav>
+
+  <footer class="links">
+    <a href="https://github.com/ScienceOxford/rtc/" target="_blank">View on GitHub</a>
+  </footer>
+
+</body>
+
+</html>
