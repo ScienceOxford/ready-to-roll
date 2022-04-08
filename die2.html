@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ready to Roll</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <a href="https://scienceoxford.com" target="_blank"><img src=".\images\so_logo.png" alt="Science Oxford Logo" width="400px" height="auto"></a>
+    <h1>Editing the second micro:bit code</h1>
+  </header>
+
+  <div id="open" class="left">
+    <h3>Open the code</h3>
+    <p>Unplug your original micro:bit and plug in the new one.</p>
+    <p>Open a new file in Mu, then <a href="https://raw.githubusercontent.com/ScienceOxford/ready-to-roll/master/examples/ready-to-roll-die2.py" target="_blank">copy-and-paste the second micro:bit code</a>.</p>
+    <br>
+    <p>Edit<code> radio.config(channel=7) </code> to be your channel number.</p>
+    <br>
+  </div>
+
+  <div id="understand" class="left">
+    <h3>audio</h3>
+    <p>One thing you probably noticed, is that the second micro:bit makes a sound when it receives a message.</p>
+    <p>Turn the micro:bit over and look on the back - the round black component in the middle is a speaker - this is only on V2 micro:bits.</p>
+    <p><strong>If your micro:bit does not have a speaker</strong>, then it is a V1 micro:bit and this code will not work. <a href="https://raw.githubusercontent.com/ScienceOxford/ready-to-roll/master/examples/ready-to-roll-die2-v1.py" target="_blank">Download this code instead, and skip to the next section.</a></p>
+    <br>
+    <p>Two lines make this audio code work, try to find them in the code.</p>
+    <pre>import audio
+audio.play(Sound.GIGGLE)</pre>
+    <br>
+    <p>Change the sound to <a href="https://microbit-micropython.readthedocs.io/en/v2-docs/audio.html#built-in-sounds-v2" target="_blank">one of these options</a>.</p>
+    <br>
+  </div>
+
+  <div id="radio-receive" class="left">
+    <h3>Receiving messages</h3>
+    <p>The micro:bit is set up to listen for messages over the radio waves. Whatever it finds, it puts in the variable<code> message </code></p>
+    <p>If no messages have been sent, then the micro:bit receives<code> None </code>.</p>
+    <p>To help make the die work, we have added a new<code> if </code> criteria - messages will only show on the display if they are<code> not None </code>.</p>
+    <br>
+  </div>
+
+  <div id="editing" class="left">
+    <h3>Editing the code</h3>
+    <p>Do you want to add more features to this micro:bit, or the original one?</p>
+    <p>Remember which micro:bit is which - it can be confusing to work out which micro:bit to Flash which code to! You will need to keep swapping your micro:bits.</p>
+    <br>
+  </div>
+
+  <nav class="links bg_green">
+    <a href="index.html">Go Back</a>
+  </nav>
+
+  <footer class="links">
+    <a href="https://github.com/ScienceOxford/ready-to-roll" target="_blank">View on GitHub</a>
+  </footer>
+
+</body>
+
+</html>
