@@ -24,6 +24,7 @@
 
   <div id="starter" class="left">
     <h3>Creating your first micro:bit program</h3>
+    <p><a href="https://raw.githubusercontent.com/ScienceOxford/ready-to-roll/master/examples/starter-imports.py" target="_blank">Click here to find the starter program, with the imports ready.</a></p>
     <p>Open <a href="https://codewith.mu/" target="_blank">the Mu editor</a> on your computer. <strong>If there is code on the screen</strong>, start a New program from the menu.</p>
     <img src="https://raw.githubusercontent.com/ScienceOxford/cyber-pet/master/images/mu_toolbar_new.png" alt="Mu menu, highlighting 'New'" width="1000px" height="auto">
     <p>Type these lines of code into your blank window:</p>
@@ -45,7 +46,27 @@ display.show(Image.HAPPY)</pre>
 
   <div id="random-number" class="left">
     <h3>Displaying a random number</h3>
-    <p>...</p>
+    <p>When you roll a die, you don't know what number is going to come up.</p>
+    <p>To add this feature into our program, we need to use the <strong>random</strong> library.</p>
+    <p>This has already been <strong>imported</strong> into your program, with this line:</p>
+    <pre>from random import randint, choice</pre>
+    <br>
+    <p>For now, we will use <code>randint</code>, which means create a <strong>random integer</strong> (whole number).</p>
+    <br>
+    <p>Edit your code so that instead of showing an <code>Image</code> on the micro:bit's <code>display</code>, you show an <strong>integer</strong>.</p>
+    <pre>display.show(5)</pre>
+    <br>
+    <p>Now we want to simulate the rolling of the die - by using a <strong>variable</strong> called <code>roll</code>, and setting this to a <strong>random integer</strong>.</p>
+    <p>Add this into your code <strong>above</strong> <code>display.show()</code>.</p>
+    <pre>roll = randint(1, 6)</pre>
+    <br>
+    <p>Finally, change your <code>display.show()</code> line, so that the <strong>value of the variable</strong> is shown instead.</p>
+    <p>Your code should now look like this:</p>
+    <pre>roll = randint(1, 6)
+display.show(roll)</pre>
+    <br>
+    <p>Test it out - flash the code to your micro:bit and see what number you get.</p>
+    <p>Press the <strong>reset button</strong> on the back of the micro:bit to restart your code - which number do you get now?</p>
     <br>
   </div>
 
@@ -78,7 +99,7 @@ display.show(Image.HAPPY)</pre>
   </div>
 
   <nav class="links bg_green">
-    <a href="images.html" target="_blank">design your own dice faces</a>
+    <a href="Design-Images.pdf" target="_blank">design your own dice faces</a>
     <a href="dnd.html" target="_blank">3-in-1 dice!</a>
     <a href="die2.html" target="_blank">edit the second micro:bit code</a>
   </nav>
