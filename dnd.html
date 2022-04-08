@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ready to Roll</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <a href="https://scienceoxford.com" target="_blank"><img src=".\images\so_logo.png" alt="Science Oxford Logo" width="400px" height="auto"></a>
+    <h1>Adding more dice options</h1>
+  </header>
+
+  <div id="why" class="left">
+    <h3>Using other inputs</h3>
+    <p>The micro:bit has two buttons, as well as the accelerometer. You can use different inputs to roll different types of dice.</p>
+    <p>For example,</p>
+    <ul>
+        <li>on shake, roll a 6-sided die</li>
+        <li>on button A, roll a 10-sided die</li>
+        <li>on button B, roll a 20-sided die</li>
+    </ul>
+    <p>What types of dice would be useful in a game you enjoy?</p>
+    <br>
+  </div>
+
+  <div id="ifs" class="left">
+    <h3>Adding more if statements</h3>
+    <p>Additional if statements need to be inside your<code> while True </code> loop. They must be indented to the same level as your current if statement.</p>
+    <p>Take a look at this structure:</p>
+    <pre>while True:
+    if accelerometer.was_gesture("shake"):
+        roll = randint(1, 6)
+        display.show(roll)
+        radio.send(str(roll))
+        sleep(5000)
+        display.clear()
+    if button_a.was_pressed():
+        display.show("A")
+    if button_b.was_pressed():
+        display.show("B")</pre>
+    <br>
+  </div>
+
+  <nav class="links bg_green">
+    <a href="index.html">Go Back</a>
+  </nav>
+
+  <footer class="links">
+    <a href="https://github.com/ScienceOxford/ready-to-roll" target="_blank">View on GitHub</a>
+  </footer>
+
+</body>
+
+</html>
