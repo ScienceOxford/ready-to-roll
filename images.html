@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ready to Roll</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <a href="https://scienceoxford.com" target="_blank"><img src=".\images\so_logo.png" alt="Science Oxford Logo" width="400px" height="auto"></a>
+    <h1>Adding your own images</h1>
+  </header>
+
+  <div id="design" class="left">
+    <h3>Create your images</h3>
+    <p>You can turn each pixel on the micro:bit's display on to varying brightnesses, using the syntax shown below.</p>
+    <p><a href="Design-Images.pdf" target="_blank">Download our design worksheet for more help!</a></p>
+    <pre>myImage = '00000:24642:57975:24642:00000'
+display.show(Image(myImage))</pre>
+    <br>
+    <p>Create as many images as you need for your dice, giving each one a different name.</p>
+    <br>
+  </div>
+
+  <div id="list" class="left">
+    <h3>Make a list</h3>
+    <p>Once you have finished designing your images, put them in a list!</p>
+    <p>If I had three images, called<code> imageOne </code>, <code> imageTwo </code>, <code> imageThree </code> - my list would look like this:</p>
+    <pre>myImages = [imageOne, imageTwo, imageThree]</pre>
+    <br>
+    <p>Define your list <strong>after</strong> you have defined the images, but <strong>before</strong> you try to display them.</p>
+    <br>
+  </div>
+
+  <div id="random" class="left">
+    <h3>Use random choice</h3>
+    <p>Now you have a list with all of your images in, you can tell the micro:bit to display a random image, instead of a random integer.</p>
+    <p>Change:</p>
+    <pre>roll = randint(1, 6)
+display.show(roll)</pre>
+    <br>
+    <p>to</p>
+    <pre>roll = choice(myImages)
+display.show(Image(roll))</pre>
+    <br>
+    <p><strong>Test this out</strong> - does your micro:bit show a random image when you roll it?</p>
+    <p>What happens to your second micro:bit, which is receiving messages over the radio?</p>
+    <br>
+  </div>
+
+  <div id="radio-receive" class="left">
+    <h3>Edit the second micro:bit</h3>
+    <p><a href="die2.html" target="_blank">To find out more about the code on the second micro:bit click here.</a></p>
+    <p>Unplug your original micro:bit and plug in the new one.</p>
+    <p>Open a new file in Mu, then <a href="https://raw.githubusercontent.com/ScienceOxford/ready-to-roll/master/examples/ready-to-roll-die2.py" target="_blank">copy-and-paste the second micro:bit code</a> (if you have already been working on the second micro:bit's code, then carry on using your version).</p>
+    <br>
+    <p>Edit<code> radio.config(channel=7) </code> to be your channel number.</p>
+    <p>Edit<code> display.show(message) </code> to this new code:</p>
+    <pre>display.show(Image(message))</pre>
+    <br>
+    <p>Test your code - roll your original die (make sure it has power!) and check that both micro:bits show your images.</p>
+    <br>
+  </div>
+
+  <nav class="links bg_green">
+    <a href="index.html">Go Back</a>
+  </nav>
+
+  <footer class="links">
+    <a href="https://github.com/ScienceOxford/game-on" target="_blank">View on GitHub</a>
+  </footer>
+
+</body>
+
+</html>
