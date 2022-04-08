@@ -72,22 +72,70 @@ display.show(roll)</pre>
 
   <div id="while-loop" class="left">
     <h3>Using loops</h3>
-    <p>...</p>
+    <p>Loops allow the micro:bit do do things more than once.</p>
+    <p>To start with, we will get the micro:bit to roll itself, forever.</p>
+    <p>Above the two lines that choose and display a random integer, add this new line:</p>
+    <pre>while True:</pre>
+    <br>
+    <p>This is Python <strong>syntax</strong> for <strong>forever</strong>.</p>
+    <br>
+    <p>To put things inside this <strong>forever loop</strong>, we need to <strong>indent them</strong> - this means using the tab or space key on your keyboard to add spaces before the lines.</p>
+    <p>Your code should look like this:</p>
+    <pre>while True:
+    roll = randint(1, 6)
+    display.show(roll)</pre>
+    <br>
+    <p><strong>Try out this code - what do you notice?</strong></p>
+    <p>Computers are very quick - when running this code, the number will change so quickly that your eyes can see it! This is why it is flickering.</p>
+    <br>
+    <p>To fix this, we need to slow it down - telling the micro:bit to pause after each number.</p>
+    <p>Add this line to the bottom of your code:</p>
+    <pre>    sleep(5000)</pre>
     <br>
   </div>
 
   <div id="input" class="left">
     <h3>Choosing when to roll</h3>
-    <p>...</p>
-    <p>link to expanding the if-else statements extension</p>
-    <p>link to images extension, can do this while waiting for their second micro:bit</p>
+    <p>Right now, the micro:bit rolls by itself - but you can choose when to roll it.</p>
+    <p>Between <code>while True:</code> and <code>roll = randint()</code>, add this new line:</p>
+    <pre>    if button_a.was_pressed():</pre>
+    <br>Then, the same as we did before, <strong>indent</strong> all of the lines of code that you want to happen <strong>if you press the button</strong>.</p>
+    <p>Your code should look like this:</p>
+    <pre>while True:
+    if button_a.was_pressed():
+        roll = randint(1, 6)
+        display.show(roll)
+        sleep(5000)</pre>
+    <br>
+    <p>If you would like the number to be cleared from the screen when you are not rolling, expand the code like this:</p>
+    <pre>        ...
+        sleep(5000)
+    else:
+        display.clear()</pre>
+    <br>
+    <p class=debugging><strong>Challenge!</strong> Can you make the micro:bit roll when you shake it, instead of when you press the button? The syntax you will need is:</p>
+    <pre>accelerometer.was_gesture('shake')</pre>
     <br>
   </div>
 
   <div id="radio" class="left">
     <h3>Controlling other dice</h3>
-    <p>...</p>
-    <p>add info about big demo die here?</p>
+    <p>For this section, you will need a second micro:bit.</p>
+    <p><a href="https://raw.githubusercontent.com/ScienceOxford/ready-to-roll/master/examples/ready-to-roll-die2.py" target="_blank">Download this code and flash it to your second micro:bit.</a></p>
+    <p><a href="https://raw.githubusercontent.com/ScienceOxford/ready-to-roll/master/examples/ready-to-roll-die2-v1.py" target="_blank"><em>If you are using a micro:bit v1 the use this code instead!</em></a></p>
+    <p>Unplug this second micro:bit, attach a battery to it, and leave it to one side.</p>
+    <br>
+    <p>Plug your original micro:bit back in, and add the following code to your program, <strong>above the<code> while True </code>loop</strong>.</p>
+    <pre>radio.on()
+radio.config(channel=7)</pre>
+    <br>
+    <p>If you are in our workshop, replace<code> channel=7 </code>with the number of your computer.</p>
+    <br>
+    <p>Inside your<code> while True </code>loop, before the<code> sleep() </code>, add this new line:</p>
+    <pre>        radio.send(str(roll))</pre>
+    <br>
+    <p>This converts the dice roll into the right format <code>str()</code>, then sends it over the radio.</p>
+    <p><strong>What happens when you roll your die now? Look at the second micro:bit.</strong></p>
     <br>
   </div>
 

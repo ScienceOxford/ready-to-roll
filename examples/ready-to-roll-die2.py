@@ -4,7 +4,7 @@ from random import randint
 import radio
 
 radio.on()
-radio.config(channel=12)
+radio.config(channel=7)
 
 while True:
     message = radio.receive()

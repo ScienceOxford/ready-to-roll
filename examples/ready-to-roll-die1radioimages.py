@@ -3,7 +3,7 @@ from random import randint, choice
 import radio
 
 radio.on()
-radio.config(channel=12)
+radio.config(channel=7)
 
 one = "00000:00000:00900:00000:00000"
 two = "00000:09000:00000:00090:00000"
