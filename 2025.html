@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Ready to Roll</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <header>
+    <a href="https://scienceoxford.com" target="_blank"><img src=".\images\so_logo.png" alt="Science Oxford Logo" width="400px" height="auto"></a>
+    <h1>CCC - Lucky Dice</h1>
+  </header>
+
+  <div id="intro">
+    <p>Resources for the 'Lucky Dice' Creative Computing Club.</p>
+    <p>During this workshop, you will create electronic dice with a BBC micro:bit.</p>
+    <p>This page recaps what <a href="https://bit.ly/Feb25CCC" target="_blank">we discussed as a group</a>.</p>
+    <p>To skip to the examples and ideas, <a href="#extensions">click here</a>.</p>
+    <br>
+  </div>
+
+  <div id="starter" class="left">
+    <h3>Creating your first micro:bit program</h3>
+    <p>Open <a href="https://python.microbit.org/" target="_blank">the Python editor</a> on your computer, and copy-and-paste the code below to set up your file (if you are at our in-person workshop, this will have been done for you already).
+    <p>Replace the code on the screen with this:</p>
+    <pre># Imports go at the top
+from microbit import *
+from random import randint, choice
+import music
+      
+# Code in a 'while True:' loop repeats forever
+while True:
+  display.show(Image.HEART)
+  sleep(1000)
+  display.scroll('Hello')</pre>
+    <br>
+    <img src="images\starter-code-screenshot.png" alt="Python Editor, showing the emulator on the left, and the starter code (as described above)" width="1000px" height="auto">
+    <br><br>
+    <p>Plug your micro:bit into the computer, then click <strong>Send to micro:bit</strong>. Follow the pairing instructions that pop up.</p>
+
+    <p>Some code should be running on your micro:bit!</p>
+    <p><strong>If you get a message scrolling across the micro:bit's screen</strong>, this is an error message!</p>
+    <p><strong>Debug</strong> your code, then click Flash again to test your changes.</p>
+    <p>Once your code is working - change it!</p>
+    <ul>
+      <li>Can you change the <code>Image</code> on the micro:bit's <code>display</code>?</li>
+      <li>Can change the message?</li>
+      <li>What happens if you make the number in <code>sleep</code> really large or really small?</li>
+    </ul>
+    <br>
+    <p>If you get an unexpected message on the micro:bit, you have found an error message! Try to debug your code - the Editor can be helpful here, look out for some red dots.</p>
+    <br>
+  </div>
+
+  <div id="random-number" class="left">
+    <h3>Displaying a random number</h3>
+    <p>When you roll a die, you don't know what number is going to come up.</p>
+    <p>To add this feature into our program, we need to use the <strong>random</strong> library.</p>
+    <p>This has already been <strong>imported</strong> into your program, with this line:</p>
+    <pre>from random import randint, choice</pre>
+    <br>
+    <p>For now, we will use <code>randint</code>, which means create a <strong>random integer</strong> (whole number).</p>
+    <br>
+    <h5>Step 1</h5>
+    <p>Edit your code so that instead of showing an <code>Image</code> on the micro:bit's <code>display</code>, you show an <strong>integer</strong>.</p>
+    <pre>display.show(5)</pre>
+    <br>
+    <h5>Step 2</h5>
+    <p>To make your dice easier to use, delete the line of code that scrolls your message.</p>
+    <em>You could also move it to the start of your code, above your <code>While True</code> loop, so that it only runs <strong>once at the start of your programme</strong>.</em>
+    <br><br>
+    <h5>Step 3</h5>
+    <p>Now we want to simulate the rolling of the die - by using a <strong>variable</strong> called <code>roll</code>, and setting this to a <strong>random integer</strong>.</p>
+    <p>Add this into your code <strong>above</strong> <code>display.show()</code>.</p>
+    <pre>roll = randint(1, 6)</pre>
+    <br>
+    <h5>Step 4</h5>
+    <p>Finally, change your <code>display.show()</code> line, so that the <strong>value of the variable</strong> is shown instead.</p>
+    <br>
+    <p>Your code should now look like this:</p>
+    <pre>while True:
+  roll = randint(1, 6)
+  display.show(roll)
+  sleep(1000)</pre>
+    <br>
+    <h5>Step 5</h5>
+    <p>Test it out - send the code to your micro:bit and see what numbers you get.</p>
+    <br>
+  </div>
+
+  <div id="input" class="left">
+    <h3>Choosing when to roll</h3>
+    <p>Right now, the micro:bit rolls by itself - but you can choose when to roll it.</p>
+    <p>Between <code>while True:</code> and <code>roll = randint()</code>, add this new line:</p>
+    <pre>    if accelerometer.was_gesture('shake'):</pre>
+    <br>Then, you need to, <strong>indent</strong> all of the lines of code that you want to happen <strong>if you press the button</strong>.</p>
+    <p>Indentation is Python's way of knowing when things should happen - it is like slotting code inside other blocks in Scratch - look at the code example below and see how the lines line up on the left.</p>
+    <pre>while True:
+    if accelerometer.was_gesture('shake'):
+        roll = randint(1, 6)
+        display.show(roll)
+        sleep(5000)</pre>
+    <br>
+    <p>If you would like the number to be cleared from the screen when you are not rolling, expand the code like this:</p>
+    <pre>        ...
+        sleep(5000)
+    else:
+        display.clear()</pre>
+    <br>
+    <p class=debugging><strong>Challenge!</strong> Can you make the micro:bit roll when you press a button instead? The syntax you will need is:</p>
+    <pre>button_a.was_pressed()</pre>
+    <br><br>
+  </div>
+
+  <div id="images" class="left">
+    <h3>Using images instead of numbers for your dice</h3>
+    <p>To use your own images, you will need to do these steps:</p>
+    <ol>
+      <li>Design your images and name them</li>
+      <li>Put them in a <code>list</code></li>
+      <li>Use <code>random choice</code> syntax to pick one</li>
+      <li>Make sure that the micro:bit can display them properly</li>
+    </ol>
+    <br>
+    <h5>Step 1</h5>
+    <p>To design your own images, you choose which of the individual lights - pixels - on the front of the micro:bit that you want to turn on, and how bright to have them.</p>
+    <p><a href="./Your-Images.pdf">Use this worksheet to help you.</a></p>
+    <p>Create six images, one for each number, and put them in your code <strong>above</strong> your <code>while True</code> loop.</p>
+    <p>Make sure you test your images to make sure you are happy with them.</p>
+    <br>
+
+    <h5>Step 2</h5>
+    <p><strong>After</strong> adding your images, on the next line down, you will create a <strong>list</strong> of all your images, to group them together.</p>
+    <p>Python syntax for a list is like this:</p>
+    <pre>numbers = [one, two, three, four, five, six]</pre>
+    <br>
+    <p>You name your list, then use <strong>square brackets</strong> to contain everything inside.</p>
+    <br>
+
+    <h5>Step 3</h5>
+    <p>Find the line that is already in your code that looks like this:</p>
+    <pre>roll = randint(1, 6)</pre>
+    <br>
+    <p>You are going to change this to choose from the images in your list instead, by using this code:</p>
+    <pre>roll = choice(numbers)</pre>
+    <br>
+    <p>Where <code>numbers</code> is the name of your list.</p>
+    <br>
+
+    <h5>Step 4</h5>
+    <p>What happens if you run your code now?</p>
+    <br>
+    <p>You next line after this says:</p>
+    <pre>display.show(roll)</pre>
+    <br>
+    <p>So the micro:bit is looking at the string of numbers you gave it, e.g. <code>'00000:99999:00000:99999:00000'</code> and putting them all on the screen!</p>
+    <p>You need to edit this line to let the micro:bit know that it is an image:</p>
+    <pre>display.show(Image(roll))</pre>
+    <br><br>
+
+    <h5>Step 5</h5>
+    <p>Test it!</p>
+    <p>Do you get any error messages? Try to debug step by step.</p>
+    <br>
+    <p>If you get stuck, <a href="https://raw.githubusercontent.com/ScienceOxford/ready-to-roll/master/examples/random-choice.py" target="_blank">look at our code here</a>.</p>
+
+    <br><br>
+  </div>
+
+  <div id="extensions" class="left">
+    <h3>What next?</h3>
+    <p>The micro:bit has lots of ways to expand your code - explore the Reference menu for some ideas.</p>
+    <p>There are also some ideas in the links below.</p>
+    <br>
+  </div>
+
+  <nav class="links bg_green">
+    <a href="dnd.html" target="_blank">3-in-1 dice!</a>
+  </nav>
+
+  <footer class="links">
+    <a href="https://github.com/ScienceOxford/ready-to-roll/" target="_blank">View on GitHub</a>
+  </footer>
+
+</body>
+
+</html>
